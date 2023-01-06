@@ -99,16 +99,29 @@ function getRandom(arr) {
 }
 
 // Function to generate password with user input
+
+    // Generate a password when the button is clicked
+
+    // Present a series of prompts for password criteria
+
+      // Prompt for length of password "How many characters would you like to have in your password?"
+
 function generatePassword() {
-  alert("this is where the password will be generated");
-}
+  let characterAmount = prompt("How many characters would you like to have in your password?");
+  // store number value
+  if (characterAmount != null && characterAmount.length !== 0) {
+    console.log(characterAmount)
+  }
+  
+    // Prompt to enter number between 10 and 64 if number input is out of this range.
+  let secondMessage;
+    if (characterAmount < 10) {
+      secondMessage = prompt("Please enter a number between 10 and 64!")
+    } else if (characterAmount > 64) {
+      secondMessage = prompt("Please enter a number between 10 and 64!")
+    }
 
-// Generate a password when the button is clicked
-
-// Present a series of prompts for password criteria
-  // Prompt for length of password "How many characters would you like to have in your password?"
-
-    // Enter number between 10 and 64.
+} 
 
         // Click OK to confirm any lowercase letters in password.
     // No lowercase letters in password if cancel is clicked.
@@ -141,7 +154,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
-
-
-
-
