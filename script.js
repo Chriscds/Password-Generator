@@ -95,14 +95,13 @@ function getPasswordOptions() {
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-
+  return arr[Math.floor(Math.random() * arr.length)];
+  console.log(getRandom(arr))
 }
 
 // Function to generate password with user input
 
     // Generate a password when the button is clicked
-
-    // Present a series of prompts for password criteria
 
       // Prompt for length of password "How many characters would you like to have in your password?"
 
@@ -116,9 +115,9 @@ function generatePassword() {
     // Prompt to enter number between 10 and 64 if number input is out of this range.
   let secondMessage;
     if (characterAmount < 10) {
-      secondMessage = prompt("Please enter a number between 10 and 64!")
+      secondMessage = confirm("Please enter a number between 10 and 64!")
     } else if (characterAmount > 64) {
-      secondMessage = prompt("Please enter a number between 10 and 64!")
+      secondMessage = confirm("Please enter a number between 10 and 64!")
     }
 
 } 
