@@ -88,10 +88,14 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-var usersChoice= [];
+// sets the user length to initialise
+var characterLength = 10;
+var usersChoice = [];
 
 // Function to prompt user for password options
 function getPasswordOptions() {
+  // reset users choice at the start
+    usersChoice = [];
       // Prompt for length of password "How many characters would you like to have in your password?"
       userInputLength = prompt("How many characters would you like to have in your password?");
 
@@ -108,20 +112,19 @@ function getPasswordOptions() {
       }
       // Click OK to confirm any Numeric characters in password.
       // No Numeric characters in password if cancel is clicked.
-      if (confirm("Would you like any special characters in your password?")) {
+      if (confirm("Would you like any numbers in your password?")) {
         usersChoice = usersChoice.concat(numericCharacters);
       }
       // Click OK to confirm any lowercase letters in password.
       // No lowercase letters in password if cancel is clicked.
-      if (confirm("Would you like any special characters in your password?")) {
+      if (confirm("Would you like any lowercase letters in your password?")) {
         usersChoice = usersChoice.concat(lowerCasedCharacters);
       }
       // Click OK to confirm any uppercase letters in password.
       // No uppercase letters in password if cancel is clicked.
-      if (confirm("Would you like any special characters in your password?")) {
+      if (confirm("Would you like any uppercase letters in your password?")) {
         usersChoice = usersChoice.concat(upperCasedCharacters);
       }
-      return true;
 
 }
 
@@ -132,27 +135,17 @@ function getRandom(specialCharacters) {
 
 // Function to generate password with user input
 
-    // Generate a password when the button is clicked
-
-
-
+// Generate a password when the button is clicked
 function generatePassword() {
-  
+  // Grabs the function getPasswordOptions
+  prompt(getPasswordOptions());
+  var passwordValue = "";
+  for(var i = 0; i < userInputLength; i++) {
+      var randomCharacters = Math.floor(Math.random() * usersChoice.length);
+      passwordValue = passwordValue + usersChoice[randomCharacters];
+  }
+  return passwordValue;
 } 
-
-        
-
-          
-
-            
-
-    
-
-
-// Code should validate for each input and at least one character type should be selected
-
-// Once prompts are answered then the password should be generated and displayed in an alert or written to the page
-
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
