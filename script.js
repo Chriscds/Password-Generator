@@ -88,51 +88,65 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+var usersChoice= [];
+
 // Function to prompt user for password options
 function getPasswordOptions() {
+      // Prompt for length of password "How many characters would you like to have in your password?"
+      userInputLength = prompt("How many characters would you like to have in your password?");
+
+      // check to see if users input is within scope and alert if false
+      if (userInputLength < 10 || userInputLength > 64) {
+        alert("Please enter a number between 10 and 64 characters!");
+        return false;
+      }
+      // Click OK to confirm special characters ($@%&*, etc) in password.
+      // No special characters in password if cancel is clicked.
+      if (confirm("Would you like any special characters in your password?")) {
+        // add special characters to users choice.
+        usersChoice = usersChoice.concat(specialCharacters);
+      }
+      // Click OK to confirm any Numeric characters in password.
+      // No Numeric characters in password if cancel is clicked.
+      if (confirm("Would you like any special characters in your password?")) {
+        usersChoice = usersChoice.concat(numericCharacters);
+      }
+      // Click OK to confirm any lowercase letters in password.
+      // No lowercase letters in password if cancel is clicked.
+      if (confirm("Would you like any special characters in your password?")) {
+        usersChoice = usersChoice.concat(lowerCasedCharacters);
+      }
+      // Click OK to confirm any uppercase letters in password.
+      // No uppercase letters in password if cancel is clicked.
+      if (confirm("Would you like any special characters in your password?")) {
+        usersChoice = usersChoice.concat(upperCasedCharacters);
+      }
+      return true;
 
 }
 
 // Function for getting a random element from an array
-function getRandom(arr) {
-  return arr[Math.floor(Math.random() * arr.length)];
-  console.log(getRandom(arr))
+function getRandom(specialCharacters) {
+
 }
 
 // Function to generate password with user input
 
     // Generate a password when the button is clicked
 
-      // Prompt for length of password "How many characters would you like to have in your password?"
+
 
 function generatePassword() {
-  let characterAmount = prompt("How many characters would you like to have in your password?");
-  // store number value
-  if (characterAmount != null && characterAmount.length !== 0) {
-    console.log(characterAmount)
-  }
   
-    // Prompt to enter number between 10 and 64 if number input is out of this range.
-  let secondMessage;
-    if (characterAmount < 10) {
-      secondMessage = confirm("Please enter a number between 10 and 64!")
-    } else if (characterAmount > 64) {
-      secondMessage = confirm("Please enter a number between 10 and 64!")
-    }
-
 } 
 
-        // Click OK to confirm any lowercase letters in password.
-    // No lowercase letters in password if cancel is clicked.
+        
 
-          // Click OK to confirm any uppercase letters in password.
-    // No uppercase letters in password if cancel is clicked.
+          
 
-            // Click OK to confirm any Numeric characters in password.
-    // No Numeric characters in password if cancel is clicked.
+            
 
-              // Click OK to confirm special characters ($@%&*, etc) in password.
-    // No special characters in password if cancel is clicked.
+    
 
 
 // Code should validate for each input and at least one character type should be selected
